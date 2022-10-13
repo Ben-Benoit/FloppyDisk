@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  font-size: 12px;
+}
+
+:root {
+  --pulse-speed: 0.5s;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: rgb(19, 19, 19);
+}
+body.no-cursor {
+  cursor: none;
+}
+
+.absolute {
+  position: absolute;
+}
+
+game-container {
+  display: block;
+  width: 320px;
+  height: 180px;
+  overflow: hidden;
+  position: absolute;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+game-object {
+  display: inline-block;
+  position: absolute;
+}
+
+game-menu {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 4px;
+  padding: 5px;
+}
+
+game-label,
+game-btn {
+  color: black;
+  background-color: white;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-content: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.2em 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+game-label {
+  pointer-events: none;
+  user-select: none;
+  border: 2px solid red;
+  box-shadow: 2px 2px 0px inset black, 2px -2px 0px inset black, -2px 2px 0px inset black, -2px -2px 0px inset black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+game-label:hover {
+  cursor: default;
+}
+game-label.top {
+  align-items: flex-start;
+}
+game-label.bottom {
+  align-items: flex-end;
+}
+game-label.left {
+  justify-content: flex-start;
+}
+game-label.right {
+  justify-content: flex-end;
+}
+game-label.text-only {
+  color: white;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0.25em 0.4em;
+  margin: 0;
+}
+
+game-btn {
+  user-select: none;
+}
+game-btn:hover, game-btn.menu-focused {
+  cursor: pointer;
+  font-weight: bold;
+  animation: pulse-border-color var(--pulse-speed) ease-in-out 0s infinite, pulse-text-shadow var(--pulse-speed) ease-in-out 0s infinite;
+  box-shadow: 2px 2px 0px inset black, 2px -2px 0px inset black, -2px 2px 0px inset black, -2px -2px 0px inset black;
+}
+
+@keyframes pulse-border-color {
+  0% {
+    border-color: rgb(255, 0, 0);
+  }
+  50% {
+    border-color: rgb(220, 0, 0);
+  }
+  100% {
+    border-color: rgb(255, 0, 0);
+  }
+}
+@keyframes pulse-text-shadow {
+  0% {
+    text-shadow: 0px 0px 0px black;
+  }
+  50% {
+    text-shadow: 0px 0px 0px transparent;
+  }
+  100% {
+    text-shadow: 0px 0px 0px black;
+  }
+}/*# sourceMappingURL=styles.css.map */
